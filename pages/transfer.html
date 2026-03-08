@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer Money - VexaBank</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="../index.html">VexaBank</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="../login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow-1 section-padding">
+    <div class="container">
+      <h1 class="section-title">Transfer Money</h1>
+
+      <!-- 
+        Transfer form: Bootstrap form layout.
+        Grid used to limit form width on large screens (col-lg-6 = half width).
+      -->
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8 col-xl-6">
+          <div class="card card-custom">
+            <div class="card-header">New Transfer</div>
+            <div class="card-body p-4">
+              <form>
+                <div class="mb-3">
+                  <label for="recipientName" class="form-label">Recipient Name</label>
+                  <input type="text" class="form-control" id="recipientName" placeholder="Full name of recipient" required>
+                </div>
+                <div class="mb-3">
+                  <label for="accountNumber" class="form-label">Account Number</label>
+                  <input type="text" class="form-control" id="accountNumber" placeholder="Recipient's account number" required>
+                </div>
+                <div class="mb-3">
+                  <label for="amount" class="form-label">Amount</label>
+                  <input type="number" class="form-control" id="amount" placeholder="0.00" step="0.01" min="0.01" required>
+                </div>
+                <div class="mb-4">
+                  <label for="note" class="form-label">Note</label>
+                  <textarea class="form-control" id="note" rows="3" placeholder="Optional message for recipient"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Transfer</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-custom mt-auto">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 VexaBank. Academic Project.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
