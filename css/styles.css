@@ -1,40 +1,3 @@
-/*
- * VexaBank - Custom Styles
- * This file contains custom CSS variables and overrides
- * using the project's color palette for a modern banking UI.
- */
-
-/* --------------------------------------------
-   CSS CUSTOM PROPERTIES (Variables)
-   --------------------------------------------
-   Using CSS variables ensures consistent color usage
-   across all pages. Easy to maintain and update.
--------------------------------------------- */
-:root {
-  /* Primary palette - burgundy/maroon banking theme */
-  --color-primary: #AD2831;
-  --color-primary-dark: #800E13;
-  --color-primary-darker: #640D14;
-  --color-primary-darkest: #38040E;
-  
-  /* Neutral colors for text and backgrounds */
-  --color-light: #f8f9fa;
-  --color-dark: #212529;
-  --color-muted: #6c757d;
-  
-  /* Spacing and layout */
-  --section-padding: 4rem 0;
-  --card-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-  --card-shadow-hover: 0 0.5rem 1.5rem rgba(173, 40, 49, 0.15);
-  --border-radius: 0.5rem;
-  --transition-speed: 0.3s ease;
-}
-
-/* --------------------------------------------
-   GLOBAL RESETS & BASE STYLING
-   --------------------------------------------
-   Ensures consistent box-sizing and smooth scrolling.
--------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -47,30 +10,31 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: var(--color-dark);
+  color: #212529;
   line-height: 1.6;
   overflow-x: hidden;
 }
-
-/* Use our primary color for .text-primary (overrides Bootstrap blue) */
+main p {
+  font-size: 14px;
+  
+}
+main > h1 {
+  text-align: center;
+  color: #800E13;
+  margin-bottom: 20px;
+}
 .text-primary {
-  color: var(--color-primary) !important;
+  color: #AD2831 !important;
 }
 
-/* --------------------------------------------
-   NAVBAR CUSTOM STYLING
-   --------------------------------------------
-   Overrides Bootstrap navbar to use our color palette.
-   .navbar-dark uses dark background; we set custom colors.
--------------------------------------------- */
 .navbar-custom {
-  background-color: var(--color-primary-darkest) !important;
+  background-color: #38040E !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link {
-  color: var(--color-light) !important;
+  color: #f8f9fa !important;
 }
 
 .navbar-custom .nav-link:hover,
@@ -87,53 +51,43 @@ body {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* --------------------------------------------
-   BUTTON STYLING
-   --------------------------------------------
-   Primary and outline buttons using our palette.
-   .btn-primary gets the main brand color.
--------------------------------------------- */
 .btn-primary,
 .btn-custom-primary {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: #AD2831;
+  border-color: #AD2831;
   color: #fff;
-  transition: background-color var(--transition-speed), border-color var(--transition-speed), transform 0.2s;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s;
 }
 
 .btn-primary:hover,
 .btn-custom-primary:hover {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  background-color: #800E13;
+  border-color: #800E13;
   color: #fff;
   transform: translateY(-1px);
 }
 
 .btn-outline-custom {
-  border: 2px solid var(--color-primary);
-  color: var(--color-primary);
+  border: 2px solid #AD2831;
+  color: #AD2831;
   background: transparent;
 }
 
 .btn-outline-custom:hover {
-  background-color: var(--color-primary);
+  background-color: #AD2831;
   color: #fff;
-  border-color: var(--color-primary);
+  border-color: #AD2831;
 }
 
-/* --------------------------------------------
-   HERO SECTION
-   --------------------------------------------
-   Full-width hero with gradient overlay for visual depth.
-   Uses flexbox for vertical centering of content.
--------------------------------------------- */
 .hero-section {
-  background: linear-gradient(135deg, var(--color-primary-darker) 0%, var(--color-primary-darkest) 100%);
-  color: var(--color-light);
+  background: url('/img.jpg') no-repeat;
+  color: #38040E;
   padding: 5rem 0;
   min-height: 400px;
   display: flex;
-  align-items: center;
+  background-size: 100%;
+background-repeat: no-repeat;
+background-position: center;
 }
 
 .hero-section h1 {
@@ -147,61 +101,44 @@ body {
   opacity: 0.95;
 }
 
-/* --------------------------------------------
-   CARD STYLING & HOVER EFFECTS
-   --------------------------------------------
-   Bootstrap cards with custom border and shadow.
-   Hover state adds subtle lift and shadow for interactivity.
--------------------------------------------- */
 .card-custom {
   border: none;
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
 .card-custom:hover {
   transform: translateY(-5px);
-  box-shadow: var(--card-shadow-hover);
+  box-shadow: 0 0.5rem 1.5rem rgba(173, 40, 49, 0.15);
 }
 
 .card-custom .card-header {
-  background-color: var(--color-primary);
+  background-color: #AD2831;
   color: #fff;
   border: none;
   font-weight: 600;
   padding: 0.75rem 1.25rem;
 }
 
-/* Feature cards on homepage - icon or accent bar */
 .card-feature {
-  border-left: 4px solid var(--color-primary);
+  border-left: 4px solid #AD2831;
 }
 
-/* --------------------------------------------
-   FORM STYLING
-   --------------------------------------------
-   Focus states use primary color for consistency.
--------------------------------------------- */
 .form-control:focus,
 .form-select:focus {
-  border-color: var(--color-primary);
+  border-color: #AD2831;
   box-shadow: 0 0 0 0.2rem rgba(173, 40, 49, 0.25);
 }
 
 .form-label {
   font-weight: 500;
-  color: var(--color-dark);
+  color: #212529;
 }
 
-/* --------------------------------------------
-   TABLE STYLING (Transaction History)
-   --------------------------------------------
-   Striped rows and primary-colored header.
--------------------------------------------- */
 .table-custom thead {
-  background-color: var(--color-primary-darkest);
+  background-color: #38040E;
   color: #fff;
 }
 
@@ -215,22 +152,15 @@ body {
   background-color: rgba(173, 40, 49, 0.05);
 }
 
-/* Status badges */
 .badge-deposit { background-color: #198754; }
 .badge-transfer { background-color: #0d6efd; }
-.badge-withdrawal { background-color: var(--color-primary); }
-
-/* --------------------------------------------
-   SPACING & LAYOUT UTILITIES
-   --------------------------------------------
-   Consistent section padding and max-width for readability.
--------------------------------------------- */
+.badge-withdrawal { background-color: #AD2831;}
 .section-padding {
-  padding: var(--section-padding);
+  padding: 4rem 0;
 }
 
 .section-title {
-  color: var(--color-primary-darkest);
+  color: #38040E;
   font-weight: 700;
   margin-bottom: 2rem;
   position: relative;
@@ -244,18 +174,13 @@ body {
   bottom: 0;
   width: 60px;
   height: 3px;
-  background-color: var(--color-primary);
+  background-color: #AD2831;
   border-radius: 2px;
 }
 
-/* --------------------------------------------
-   FOOTER
-   --------------------------------------------
-   Dark footer matching navbar for brand consistency.
--------------------------------------------- */
 .footer-custom {
-  background-color: var(--color-primary-darkest);
-  color: var(--color-light);
+  background-color: #38040E;
+  color: #f8f9fa;
   padding: 2rem 0;
   margin-top: auto;
 }
@@ -269,11 +194,6 @@ body {
   color: #fff;
 }
 
-/* --------------------------------------------
-   LOGIN PAGE - Centered Card
-   --------------------------------------------
-   Flexbox centering for the login form.
--------------------------------------------- */
 .login-wrapper {
   min-height: calc(100vh - 200px);
   display: flex;
@@ -285,29 +205,24 @@ body {
 .login-card {
   max-width: 420px;
   width: 100%;
-  box-shadow: var(--card-shadow-hover);
+  box-shadow: 0 0.5rem 1.5rem rgba(173, 40, 49, 0.15);
   border: none;
-  border-radius: var(--border-radius);
+  border-radius: 0.5rem;
 }
 
 .login-card .card-header {
-  background-color: var(--color-primary);
+  background-color: #AD2831;
   color: #fff;
   font-weight: 600;
   font-size: 1.25rem;
   padding: 1rem 1.5rem;
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
-/* --------------------------------------------
-   DASHBOARD & PROFILE CARDS
-   --------------------------------------------
-   Accent for balance and info cards.
--------------------------------------------- */
 .balance-card .card-body {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  background: linear-gradient(135deg, #AD2831 0%, #800E13 100%);
   color: #fff;
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .quick-action-btn {
@@ -316,28 +231,9 @@ body {
 
 .quick-action-btn:hover {
   transform: translateY(-2px);
-  box-shadow: var(--card-shadow-hover);
+  box-shadow: 0 0.5rem 1.5rem rgba(173, 40, 49, 0.15);
 }
 
-/* --------------------------------------------
-   RESPONSIVE ADJUSTMENTS
-   --------------------------------------------
-   Hero and spacing tweaks for mobile.
--------------------------------------------- */
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 3rem 0;
-    min-height: 320px;
-    text-align: center;
-  }
-
-  .hero-section .btn {
-    display: block;
-    width: 100%;
-    margin-top: 0.5rem;
-  }
-
-  .section-padding {
-    padding: 2.5rem 0;
-  }
+input[type="text"] {
+  border-radius: 4px;
 }
