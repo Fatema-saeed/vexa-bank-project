@@ -80,7 +80,7 @@ main > h1 {
 }
 
 .hero-section {
-  background: url('img.jpg') no-repeat;
+  background: url('/images/img.jpg') no-repeat;
   color: #38040E;
   padding: 5rem 0;
   min-height: 400px;
