@@ -4,112 +4,208 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - VexaBank</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../css/styles.css" rel="stylesheet">
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
 </head>
-<body class="d-flex flex-column min-vh-100">
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-      <div class="container">
-<div>
-          <img src="/images/vexa logo.png" alt="VexaBank Logo" class="img-fluid" style="max-height: 40px;">
-          <a class="navbar-brand fw-bold" href="../index.html">VexaBank</a>
-        </div>        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarMain">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="../login.html">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-          </ul>
-        </div>
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html">VexaBank</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarMain"
+        aria-controls="navbarMain"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Dashboard</a>
+          </li>
+                    <li class="nav-item"><a class="nav-link" href="./questionnaire.html">Questionnaire</a></li>
+          <li class="nav-item"><a class="nav-link " href="./fun.html">Fun Page</a></li>
+          <li class="nav-item"><a class="nav-link" href="./calculate.html">Calculate</a></li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="py-5 bg-white border-bottom">
+    <div class="container text-center text-lg-start">
+      <h1 class="fw-bold text-danger">About Us</h1>
+      <p class="lead text-danger mb-0">
+        Building trust through innovation and security.
+      </p>
+    </div>
   </header>
 
   <main class="flex-grow-1">
-    <section class="hero-section py-5">
-      <div class="container">
-        <h1 class="mb-3">About VexaBank</h1>
-        <p class="lead">Building trust through transparency and innovation in digital banking.</p>
-      </div>
-    </section>
 
-    <section class="section-padding">
+    <!-- About Content -->
+    <section class="py-5">
       <div class="container">
         <div class="row g-4">
-          <div class="col-lg-6">
-            <h2 class="section-title">Who We Are</h2>
-            <p>
-              VexaBank is a modern digital bank designed to make managing your money simple and secure. 
-              We combine cutting-edge technology with a customer-first approach to deliver banking 
-              services you can rely on every day.
-            </p>
-          </div>
-          <div class="col-lg-6">
-            <h2 class="section-title">Our Mission</h2>
-            <p>
-              To provide accessible, secure, and user-friendly banking solutions that empower 
-              individuals and businesses to achieve their financial goals with confidence.
-            </p>
-          </div>
-        </div>
-        <div class="row mt-4">
-          <div class="col-12">
-            <h2 class="section-title">Our Vision</h2>
-            <p>
-              To be the most trusted digital banking platform by continuously innovating our 
-              services while maintaining the highest standards of security and customer care.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section-padding bg-light">
-      <div class="container">
-        <h2 class="section-title">Our Team</h2>
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <div class="card card-custom h-100">
-              <div class="card-header">Team Member</div>
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
               <div class="card-body">
+                <h2 class="fw-bold text-dark">Who We Are</h2>
+                <p class="mb-0">
+                  VexaBank is a modern digital bank focused on simplicity, security, and user experience.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body">
+                <h2 class="fw-bold text-dark">Our Mission</h2>
+                <p class="mb-0">
+                  To provide accessible financial solutions for everyone with modern technology.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card border-0 shadow-sm mt-4">
+          <div class="card-body">
+            <h2 class="fw-bold text-dark">Our Vision</h2>
+            <p class="mb-0">
+              To become the most trusted digital banking platform in the region.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-5 bg-white border-top border-bottom">
+      <div class="container">
+        <h2 class="fw-bold mb-4 text-dark text-center text-lg-start">Our Team</h2>
+
+        <div class="row g-4">
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-header bg-danger text-white fw-bold text-center">
+                Team Member
+              </div>
+              <div class="card-body text-center">
                 <h5 class="card-title">Sumaiya Al-Sadi</h5>
-<p class="card-text text-muted small">
-    <a href="mailto:s147433@student.squ.edu.om">s147433@student.squ.edu.om</a>
-</p>              </div>
+                <a href="mailto:s147433@student.squ.edu.om">
+                  s147433@student.squ.edu.om
+                </a>
+              </div>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-3">
-            <div class="card card-custom h-100">
-              <div class="card-header">Team Member</div>
-              <div class="card-body">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-header bg-danger text-white fw-bold text-center">
+                Team Member
+              </div>
+              <div class="card-body text-center">
                 <h5 class="card-title">Fatema Al-Daghishi</h5>
-<p class="card-text text-muted small">
-    <a href="mailto:s150733@student.squ.edu.om">s150733@student.squ.edu.om</a>
-</p>              </div>
+                <a href="mailto:s150733@student.squ.edu.om">
+                  s150733@student.squ.edu.om
+                </a>
+              </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
-           
-          </div>
-          <div class="col-md-6 col-lg-3">
-           
-          </div>
+
         </div>
       </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="fw-bold mb-3 text-dark">FAQs</h2>
+
+        <div class="accordion" id="faq">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#q1"
+                aria-expanded="true"
+                aria-controls="q1"
+              >
+                Is VexaBank secure?
+              </button>
+            </h2>
+            <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+              <div class="accordion-body">
+                Yes, we use advanced encryption and security systems.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#q2"
+                aria-expanded="false"
+                aria-controls="q2"
+              >
+                Can I use it on mobile?
+              </button>
+            </h2>
+            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faq">
+              <div class="accordion-body">
+                Yes, it is fully responsive on all devices.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="footer-custom mt-auto">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2025 VexaBank. Academic Project.</p>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-2 mt-auto">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 VexaBank.</p>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

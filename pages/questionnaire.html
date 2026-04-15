@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Questionnaire - VexaBank</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">VexaBank</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarMain"
+        aria-controls="navbarMain"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link " href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="./dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" href="./questionnaire.html">Questionnaire</a></li>
+          <li class="nav-item"><a class="nav-link" href="./fun.html">Fun Page</a></li>
+          <li class="nav-item"><a class="nav-link" href="./calculate.html">Calculate</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow border-0 rounded-4">
+            <div class="card-header bg-danger text-white fw-bold fs-4">
+              Customer Feedback Questionnaire
+            </div>
+            <div class="card-body p-4">
+              <form id="questionnaireForm" novalidate>
+
+                <div class="mb-3">
+                  <label for="fullName" class="form-label fw-semibold">Full Name</label>
+                  <input type="text" id="fullName" class="form-control">
+                  <div class="invalid-feedback">Name must contain only letters and spaces, and be at least 3 characters long.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="studentEmail" class="form-label fw-semibold">Email Address</label>
+                  <input type="email" id="studentEmail" class="form-control">
+                  <div class="invalid-feedback">Please enter a valid email ending with .com or .edu.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="age" class="form-label fw-semibold">Age</label>
+                  <input type="number" id="age" class="form-control">
+                  <div class="invalid-feedback">Age must be between 18 and 80.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label fw-semibold d-block">Rate Our Digital Banking Service</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rating" id="excellent" value="Excellent">
+                    <label class="form-check-label" for="excellent">Excellent</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rating" id="good" value="Good">
+                    <label class="form-check-label" for="good">Good</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rating" id="average" value="Average">
+                    <label class="form-check-label" for="average">Average</label>
+                  </div>
+                  <div id="ratingError" class="text-danger small mt-1 d-none">Please select one rating option.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label fw-semibold d-block">Which services do you use?</label>
+                  <div class="form-check">
+                    <input class="form-check-input service-check" type="checkbox" value="Transfers" id="service1">
+                    <label class="form-check-label" for="service1">Money Transfers</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input service-check" type="checkbox" value="Payments" id="service2">
+                    <label class="form-check-label" for="service2">Bill Payments</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input service-check" type="checkbox" value="Savings" id="service3">
+                    <label class="form-check-label" for="service3">Savings Account</label>
+                  </div>
+                  <div id="serviceError" class="text-danger small mt-1 d-none">Select at least one service.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="branch" class="form-label fw-semibold">Preferred Branch</label>
+                  <select id="branch" class="form-select">
+                    <option value="">Choose a branch</option>
+                    <option>Muscat</option>
+                    <option>Sohar</option>
+                    <option>Salalah</option>
+                  </select>
+                  <div class="invalid-feedback">Please choose a branch.</div>
+                </div>
+
+                <div class="mb-4">
+                  <label for="feedback" class="form-label fw-semibold">Your Feedback</label>
+                  <textarea id="feedback" class="form-control" rows="4"></textarea>
+                  <div class="invalid-feedback">Feedback must be at least 15 characters and contain letters.</div>
+                </div>
+
+                <button type="submit" class="btn btn-danger btn-lg">Submit Questionnaire</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-danger">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 VexaBank.</p>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      This script validates the questionnaire form.
+      The page includes several control types:
+      - text input
+      - email input
+      - number input
+      - radio buttons
+      - checkboxes
+      - select list
+      - textarea
+
+      It validates at least three controls using different advanced rules.
+    */
+
+    const form = document.getElementById("questionnaireForm");
+    const fullName = document.getElementById("fullName");
+    const studentEmail = document.getElementById("studentEmail");
+    const age = document.getElementById("age");
+    const branch = document.getElementById("branch");
+    const feedback = document.getElementById("feedback");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      let isValid = true;
+
+      fullName.classList.remove("is-valid", "is-invalid");
+      studentEmail.classList.remove("is-valid", "is-invalid");
+      age.classList.remove("is-valid", "is-invalid");
+      branch.classList.remove("is-valid", "is-invalid");
+      feedback.classList.remove("is-valid", "is-invalid");
+
+      document.getElementById("ratingError").classList.add("d-none");
+      document.getElementById("serviceError").classList.add("d-none");
+
+      /*
+        Name validation:
+        Only letters and spaces are allowed.
+        The name must be at least 3 characters long.
+      */
+      const namePattern = /^[A-Za-z\s]{3,}$/;
+      if (!namePattern.test(fullName.value.trim())) {
+        fullName.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        fullName.classList.add("is-valid");
+      }
+
+      /*
+        Email validation:
+        The email must match normal email format and end with .com or .edu.
+      */
+      const emailPattern = /^[^\s@]+@[^\s@]+\.(com|edu)$/i;
+      if (!emailPattern.test(studentEmail.value.trim())) {
+        studentEmail.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        studentEmail.classList.add("is-valid");
+      }
+
+      /*
+        Age validation:
+        The customer age must be between 18 and 80.
+      */
+      const ageValue = parseInt(age.value);
+      if (isNaN(ageValue) || ageValue < 18 || ageValue > 80) {
+        age.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        age.classList.add("is-valid");
+      }
+
+      /*
+        Radio validation:
+        One rating option must be selected.
+      */
+      const ratingChecked = document.querySelector('input[name="rating"]:checked');
+      if (!ratingChecked) {
+        document.getElementById("ratingError").classList.remove("d-none");
+        isValid = false;
+      }
+
+      /*
+        Checkbox validation:
+        At least one banking service must be selected.
+      */
+      const selectedServices = document.querySelectorAll(".service-check:checked");
+      if (selectedServices.length === 0) {
+        document.getElementById("serviceError").classList.remove("d-none");
+        isValid = false;
+      }
+
+      /*
+        Select validation:
+        The branch field must not be empty.
+      */
+      if (branch.value === "") {
+        branch.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        branch.classList.add("is-valid");
+      }
+
+      /*
+        Feedback validation:
+        Must be at least 15 characters long and include letters.
+      */
+      const feedbackPattern = /^(?=.*[A-Za-z]).{15,}$/;
+      if (!feedbackPattern.test(feedback.value.trim())) {
+        feedback.classList.add("is-invalid");
+        isValid = false;
+      } else {
+        feedback.classList.add("is-valid");
+      }
+
+      if (isValid) {
+        alert("Thank you! Your questionnaire has been submitted successfully.");
+        form.reset();
+        document.querySelectorAll(".is-valid").forEach(function (element) {
+          element.classList.remove("is-valid");
+        });
+      } else {
+        alert("Please correct the highlighted fields before submitting.");
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

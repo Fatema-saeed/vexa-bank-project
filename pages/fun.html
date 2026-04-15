@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Page - VexaBank</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">VexaBank</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarMain"
+        aria-controls="navbarMain"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link " href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="./dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="./questionnaire.html">Questionnaire</a></li>
+          <li class="nav-item"><a class="nav-link active" href="./fun.html">Fun Page</a></li>
+          <li class="nav-item"><a class="nav-link" href="./calculate.html">Calculate</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow border-0 rounded-4">
+            <div class="card-header bg-danger text-white fw-bold fs-4">
+              VexaBank Smart Banking Quiz
+            </div>
+            <div class="card-body p-4">
+              <p class="text-muted">
+                Test your banking knowledge and earn a smart customer score.
+              </p>
+
+              <div id="quizBox">
+                <h4 id="questionText" class="fw-bold mb-4"></h4>
+                <div class="d-grid gap-2" id="answerButtons"></div>
+              </div>
+
+              <div class="alert alert-light border mt-4 d-none" id="resultBox">
+                <h5 class="fw-bold">Quiz Result</h5>
+                <p class="mb-2">Your Score: <span id="scoreText"></span></p>
+                <p class="mb-0" id="messageText"></p>
+              </div>
+
+              <div class="mt-4">
+                <button class="btn btn-dark" onclick="restartQuiz()">Restart Quiz</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-danger">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 VexaBank.</p>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      This is a simple banking-related quiz game.
+      It uses dynamic HTML concepts because:
+      - questions are displayed dynamically
+      - answer buttons are created dynamically
+      - the page content changes after each answer
+    */
+
+    const questions = [
+      {
+        question: "Which service allows you to move money from one account to another?",
+        answers: ["Withdrawal", "Transfer", "Deposit"],
+        correct: "Transfer"
+      },
+      {
+        question: "Which option is safest for extra account protection?",
+        answers: ["Weak password", "Two-factor authentication", "Sharing PIN"],
+        correct: "Two-factor authentication"
+      },
+      {
+        question: "What does ATM stand for?",
+        answers: ["Automatic Teller Machine", "Any Transfer Method", "Account Type Mode"],
+        correct: "Automatic Teller Machine"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    /*
+      This function shows the current question and dynamically creates buttons
+      for the possible answers.
+    */
+    function showQuestion() {
+      const questionText = document.getElementById("questionText");
+      const answerButtons = document.getElementById("answerButtons");
+
+      answerButtons.innerHTML = "";
+      const currentQuestion = questions[currentQuestionIndex];
+      questionText.textContent = currentQuestion.question;
+
+      currentQuestion.answers.forEach(function(answer) {
+        const button = document.createElement("button");
+        button.className = "btn btn-outline-danger";
+        button.textContent = answer;
+        button.onclick = function() {
+          checkAnswer(answer);
+        };
+        answerButtons.appendChild(button);
+      });
+    }
+
+    /*
+      This function checks whether the selected answer is correct.
+      If correct, the score increases.
+      Then it moves to the next question or shows the final result.
+    */
+    function checkAnswer(selectedAnswer) {
+      if (selectedAnswer === questions[currentQuestionIndex].correct) {
+        score++;
+      }
+
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < questions.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    /*
+      This function displays the final score and a message depending on performance.
+    */
+    function showResult() {
+      document.getElementById("quizBox").classList.add("d-none");
+      document.getElementById("resultBox").classList.remove("d-none");
+      document.getElementById("scoreText").textContent = score + " / " + questions.length;
+
+      let message = "";
+      if (score === questions.length) {
+        message = "Excellent! You are a smart banking expert.";
+      } else if (score >= 2) {
+        message = "Good job! You have strong banking knowledge.";
+      } else {
+        message = "Nice try! Review basic banking concepts and play again.";
+      }
+
+      document.getElementById("messageText").textContent = message;
+    }
+
+    /*
+      This function resets the quiz and starts again from the first question.
+    */
+    function restartQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      document.getElementById("quizBox").classList.remove("d-none");
+      document.getElementById("resultBox").classList.add("d-none");
+      showQuestion();
+    }
+
+    showQuestion();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

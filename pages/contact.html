@@ -1,94 +1,191 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us - VexaBank</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../css/styles.css" rel="stylesheet">
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
 </head>
-<body class="d-flex flex-column min-vh-100">
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-      <div class="container">
-        <div>
-          <img src="/images/vexa logo.png" alt="VexaBank Logo" class="img-fluid" style="max-height: 40px;">
-          <a class="navbar-brand fw-bold" href="../index.html">VexaBank</a>
-        </div>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarMain">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-            <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="../login.html">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-          </ul>
-        </div>
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html">VexaBank</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#nav"
+        aria-controls="nav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="../login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./questionnaire.html">Questionnaire</a></li>
+          <li class="nav-item"><a class="nav-link " href="./fun.html">Fun Page</a></li>
+          <li class="nav-item"><a class="nav-link" href="./calculate.html">Calculate</a></li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="py-5 bg-white border-bottom">
+    <div class="container text-center text-lg-start">
+      <h1 class="fw-bold text-danger">Contact Us</h1>
+      <p class="lead mb-0 text-secondary">We’re here to help you anytime.</p>
+    </div>
   </header>
 
   <main class="flex-grow-1">
-    <section class="hero-section py-5">
-      <div class="container">
-        <h1 class="mb-3">Contact Us</h1>
-        <p class="lead">We're here to help. Reach out anytime.</p>
-      </div>
-    </section>
-
-    <section class="section-padding">
+    <section class="py-5">
       <div class="container">
         <div class="row g-4">
-          <div class="col-lg-4">
-            <div class="card card-custom">
-              <div class="card-header">Contact Information</div>
-              <div class="card-body">
-                <p class="mb-2"><strong>Address:</strong><br>Muscat, Oman</p>
-                <p class="mb-2"><strong>Phone:</strong><br>+968 79322075</p>
-                <p class="mb-2"><strong>Email:</strong><br>s146433@student.squ.edu.om</p>
-                <p class="mb-2"><strong>Email:</strong><br>s150733@student.squ.edu.om</p>
 
-                <p class="mb-0"><strong>Hours:</strong><br>24/7 Customer Support</p>
+          <!-- Contact Info -->
+          <div class="col-lg-4">
+            <div class="card shadow-sm border-0 h-100 rounded-4">
+              <div class="card-header bg-danger text-white fw-bold">
+                Contact Information
+              </div>
+              <div class="card-body">
+                <p><strong>Address:</strong><br>Muscat, Oman</p>
+                <p><strong>Phone:</strong><br>+968 79322075</p>
+                <p>
+                  <strong>Emails:</strong><br>
+                  s146433@student.squ.edu.om<br>
+                  s150733@student.squ.edu.om
+                </p>
+                <p class="mb-0"><strong>Hours:</strong><br>24/7 Support</p>
               </div>
             </div>
           </div>
+
+          <!-- Contact Form -->
           <div class="col-lg-8">
-            <div class="card card-custom">
-              <div class="card-header">Send a Message</div>
+            <div class="card shadow-sm border-0 rounded-4">
+              <div class="card-header bg-dark text-white fw-bold">
+                Send a Message
+              </div>
+
               <div class="card-body p-4">
-                <form>
+                <form id="contactForm" novalidate>
+
                   <div class="mb-3">
-                    <label for="contactName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="contactName" placeholder="Your name" required>
+                    <label for="name" class="form-label fw-semibold">Name</label>
+                    <input id="name" type="text" class="form-control">
+                    <div class="invalid-feedback">
+                      Please enter a valid name.
+                    </div>
                   </div>
+
                   <div class="mb-3">
-                    <label for="contactEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="contactEmail" placeholder="your@email.com" required>
+                    <label for="email" class="form-label fw-semibold">Email</label>
+                    <input id="email" type="email" class="form-control">
+                    <div class="invalid-feedback">
+                      Enter a valid email address.
+                    </div>
                   </div>
+
                   <div class="mb-3">
-                    <label for="contactMessage" class="form-label">Message</label>
-                    <textarea class="form-control" id="contactMessage" rows="5" placeholder="Your message..." required></textarea>
+                    <label for="message" class="form-label fw-semibold">Message</label>
+                    <textarea id="message" class="form-control" rows="5"></textarea>
+                    <div class="invalid-feedback">
+                      Message must contain at least 10 characters.
+                    </div>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+
+                  <button type="submit" class="btn btn-danger px-4 fw-semibold">
+                    Submit
+                  </button>
+
                 </form>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer-custom mt-auto">
-    <div class="container text-center">
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-auto ">
+    <div class="container">
       <p class="mb-0">&copy; 2025 VexaBank. Academic Project.</p>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /*
+      This function validates the contact form using Bootstrap validation classes.
+      It checks:
+      1. Name must be at least 3 characters long.
+      2. Email must follow a valid email format.
+      3. Message must contain at least 10 characters.
+    */
+
+    const contactForm = document.getElementById("contactForm");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const messageInput = document.getElementById("message");
+
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      let valid = true;
+
+      nameInput.classList.remove("is-valid", "is-invalid");
+      emailInput.classList.remove("is-valid", "is-invalid");
+      messageInput.classList.remove("is-valid", "is-invalid");
+
+      if (nameInput.value.trim().length < 3) {
+        nameInput.classList.add("is-invalid");
+        valid = false;
+      } else {
+        nameInput.classList.add("is-valid");
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(emailInput.value.trim())) {
+        emailInput.classList.add("is-invalid");
+        valid = false;
+      } else {
+        emailInput.classList.add("is-valid");
+      }
+
+      if (messageInput.value.trim().length < 10) {
+        messageInput.classList.add("is-invalid");
+        valid = false;
+      } else {
+        messageInput.classList.add("is-valid");
+      }
+
+      if (valid) {
+        alert("Message sent successfully!");
+      } else {
+        alert("Please enter valid information in all fields.");
+      }
+    });
+  </script>
 </body>
 </html>

@@ -3,200 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile - VexaBank</title>
+  <title>Customer Profiles - VexaBank</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../css/styles.css" rel="stylesheet">
-   <style>
-    .section-title {
-      font-size: 2.1rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #662714, #b42e2e);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.3px;
-      padding-left: 1rem;
-    }
-
-    .profile-custom-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 12px 10px;
-      background: transparent;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .profile-custom-table td,
-    .profile-custom-table th {
-      padding: 18px 22px;
-      background-color: #ffffff;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
-      transition: all 0.2s;
-      vertical-align: middle;
-      border: 1px solid #e2e8f0;
-    }
-
-    .profile-custom-table th {
-      background: #3f381e;
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.3px;
-      border: 1px solid #2c4c6e;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-    }
-
-    .profile-custom-table tr:nth-child(even) td {
-      background-color: #fafcff;
-    }
-
-    .profile-custom-table tr:nth-child(odd) td {
-      background-color: #ffffff;
-    }
-
-    .highlight-value {
-      font-weight: 700;
-      color: #0f2b3d;
-      background: #f0f9ff !important;
-      border-left: 4px solid #2c7da0;
-    }
-
-    .account-number-cell {
-      font-family: monospace;
-      letter-spacing: 1px;
-      font-weight: 600;
-      background-color: #fef7e0 !important;
-      color: #b45309;
-    }
-
-    .email-style {
-      font-weight: 500;
-      color: #1e4a76;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 4px;
-    }
-
-    .phone-style {
-      font-weight: 600;
-      background: #eef2ff;
-    }
-
-    .merged-header-cell {
-      background-color: #640D14 !important;
-      font-size: 20px;
-      text-align: center;
-      letter-spacing: 1px;
-      font-weight: 700;
-    }
-
-    @media (max-width: 700px) {
-      body {
-        padding: 1rem;
-      }
-      .profile-table-container {
-        padding: 0.8rem;
-      }
-      .profile-custom-table td,
-      .profile-custom-table th {
-        padding: 12px 14px;
-      }
-      .profile-custom-table {
-        border-spacing: 6px 6px;
-      }
-      .btn-table-primary, .btn-table-outline {
-        padding: 6px 14px;
-        font-size: 0.75rem;
-      }
-      .section-title {
-        font-size: 1.6rem;
-      }
-    }
-  </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-      <div class="container">
-<div>
-          <img src="/images/vexa logo.png" alt="VexaBank Logo" class="img-fluid" style="max-height: 40px;">
-          <a class="navbar-brand fw-bold" href="../index.html">VexaBank</a>
-        </div>        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarMain">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="../login.html">Login</a></li>
-            <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
-          </ul>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html">VexaBank</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarMain"
+        aria-controls="navbarMain"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="dashboard.html">Dashboard</a>
+          </li>
+                            <li class="nav-item"><a class="nav-link" href="./questionnaire.html">Questionnaire</a></li>
+          <li class="nav-item"><a class="nav-link " href="./fun.html">Fun Page</a></li>
+          <li class="nav-item"><a class="nav-link" href="./calculate.html">Calculate</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h1 class="fw-bold">Customer Profiles</h1>
+        <p class="text-muted">Add, search, and display customer profiles dynamically.</p>
+      </div>
+
+      <div class="card shadow-sm border-0 rounded-4 mb-4">
+        <div class="card-header bg-danger text-white fw-bold">Add New Customer</div>
+        <div class="card-body">
+          <div class="row g-3">
+            <div class="col-md-3">
+              <input type="text" id="name" class="form-control" placeholder="Full Name">
+            </div>
+            <div class="col-md-3">
+              <input type="email" id="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="col-md-2">
+              <input type="text" id="account" class="form-control" placeholder="Account No.">
+            </div>
+            <div class="col-md-2">
+              <input type="text" id="phone" class="form-control" placeholder="Phone Number">
+            </div>
+            <div class="col-md-1">
+              <select id="security" class="form-select">
+                <option>Enabled</option>
+                <option>Disabled</option>
+              </select>
+            </div>
+            <div class="col-md-1 d-grid">
+              <button class="btn btn-dark" onclick="addProfile()">Add</button>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-  </header>
 
-  <main class="flex-grow-1 section-padding">
-    <div class="container">
-      <h1 class="section-title">User Profile</h1>
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <input type="text" id="profileSearchInput" class="form-control" placeholder="Search by name or email">
+            <button class="btn btn-danger" onclick="searchProfiles()">Search</button>
+            <button class="btn btn-outline-secondary" onclick="displayProfiles(profiles)">Show All</button>
+          </div>
+        </div>
+      </div>
 
-  <table class="profile-custom-table">
-    <tr>
-      <th colspan="2" class="merged-header-cell"> ACCOUNT OVERVIEW & SECURE DETAILS </th>
-    </tr>
-
-    <tr>
-      <th style="width: 35%; background: #640D14;"> USER NAME</th>
-      <td class="highlight-value">Fatema Said Al-Daghishi</td>
-    </tr>
-
-    <tr>
-      <th style="background: #640D14;"> EMAIL ADDRESS</th>
-      <td class="email-style">s150733@student.squ.edu.om <span style="background:#ffffff; padding:2px 8px; border-radius:50px; font-size:0.7rem; font-weight:500;">primary</span></td>
-    </tr>
-
-    <tr>
-      <th style="background: #640D14;"> ACCOUNT NUMBER</th>
-      <td class="account-number-cell">**** **** **** 4521</td>
-    </tr>
-
-    <tr>
-      <th style="background: #640D14;"> PHONE NUMBER</th>
-      <td class="phone-style">+967 79322075 <span style="font-weight:normal; margin-left:8px;"> mobile</span></td>
-    </tr>
-
-    <tr>
-      <td rowspan="3" style="background: #ffffff; vertical-align: top; font-weight: 700; color: #AD2831; border-left: 4px solid #AD2831;">
-        SECURITY<br>SETTINGS
-      </td>
-      <td style="background: #ffdada; display: table-cell;">
-        <span style="font-weight:600;">Two-Factor Auth:</span>  Enabled (Authenticator App)
-      </td>
-    </tr>
-    <tr>
-      <td style="background: #ffdada;">
-        <span style="font-weight:600;">Recovery Email:</span> fatemasaeed@gmail.com
-      </td>
-    </tr>
-    <tr>
-      <td style="background: #ffdada; border-bottom: 1px solid #d4dcc9;">
-        <span style="font-weight:600;">Last Login:</span> March 23, 2026 — 10:34 AM UTC
-      </td>
-    </tr>
-  </table>
+      <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-header bg-dark text-white fw-bold">Customer Accounts</div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Account Number</th>
+                  <th>Phone</th>
+                  <th>Security</th>
+                </tr>
+              </thead>
+              <tbody id="profileTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
-  <footer class="footer-custom mt-auto">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2025 VexaBank. Academic Project.</p>
+  <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-danger">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 VexaBank.</p>
     </div>
   </footer>
 
+  <script>
+    /*
+      Constructor function for creating customer profile objects.
+      Each object stores name, email, account number, phone, and security status.
+    */
+    function CustomerProfile(name, email, account, phone, security) {
+      this.name = name;
+      this.email = email;
+      this.account = account;
+      this.phone = phone;
+      this.security = security;
+    }
+
+    /*
+      Array used to store customer profiles using real project-style data.
+    */
+    const profiles = [
+      new CustomerProfile("Fatema Said Al-Daghishi", "s150733@student.squ.edu.om", "4521", "+967 79322075", "Enabled"),
+      new CustomerProfile("Sumaiya Al-Sadi", "s147433@student.squ.edu.om", "8934", "+968 99887766", "Enabled")
+    ];
+
+    /*
+      This function displays all profiles dynamically inside the table body.
+    */
+    function displayProfiles(data) {
+      const tableBody = document.getElementById("profileTableBody");
+      tableBody.innerHTML = "";
+
+      data.forEach(function (profile) {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td>${profile.name}</td>
+          <td>${profile.email}</td>
+          <td class="font-monospace fw-bold">${profile.account}</td>
+          <td>${profile.phone}</td>
+          <td>
+            <span class="badge ${profile.security === 'Enabled' ? 'bg-success' : 'bg-secondary'}">
+              ${profile.security}
+            </span>
+          </td>
+        `;
+
+        tableBody.appendChild(row);
+      });
+    }
+
+    /*
+      This function adds a new profile object into the array,
+      then refreshes the table display.
+    */
+    function addProfile() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const account = document.getElementById("account").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const security = document.getElementById("security").value;
+
+      if (name === "" || email === "" || account === "" || phone === "") {
+        alert("Please fill in all customer fields.");
+        return;
+      }
+
+      const newProfile = new CustomerProfile(name, email, account, phone, security);
+      profiles.push(newProfile);
+      displayProfiles(profiles);
+    }
+
+    /*
+      This function searches customer profiles by name or email.
+    */
+    function searchProfiles() {
+      const value = document.getElementById("profileSearchInput").value.toLowerCase().trim();
+
+      const filtered = profiles.filter(function (profile) {
+        return (
+          profile.name.toLowerCase().includes(value) ||
+          profile.email.toLowerCase().includes(value)
+        );
+      });
+
+      displayProfiles(filtered);
+    }
+
+    displayProfiles(profiles);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,66 +4,161 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - VexaBank</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-</head>
-<body class="d-flex flex-column min-vh-100">
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-      <div class="container">
-<div>
-          <img src="/images/vexa logo.png" alt="VexaBank Logo" class="img-fluid" style="max-height: 40px;">
-          <a class="navbar-brand fw-bold" href="../index.html">VexaBank</a>
-        </div>        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarMain">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/about.html">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/contact.html">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/dashboard.html">Dashboard</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
 
-<main class="login-wrapper">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-dark bg-gradient">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">VexaBank</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarMain"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./pages/about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="./pages/contact.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link " href="./pages/questionnaire.html">Questionnaire</a></li>
+          <li class="nav-item"><a class="nav-link" href="./pages/fun.html">Fun Page</a></li>
+          <li class="nav-item"><a class="nav-link" href="./pages/calculate.html">Calculate</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Form -->
+  <main class="flex-grow-1 d-flex justify-content-center align-items-center py-5">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-sm-10 col-md-6 col-lg-5">
-          <div class="card login-card card-custom">
-            <div class="card-header">Sign In</div>
+        <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+
+          <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-header bg-danger text-white text-center fw-bold fs-4 py-3 rounded-top-4">
+              Sign In to VexaBank
+            </div>
+
             <div class="card-body p-4">
-               <form action="https://httpbin.org/get" method="get">
+
+              <form id="loginForm" novalidate>
 
                 <div class="mb-3">
-                  <label for="loginEmail" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="loginEmail" name="email"
-                         placeholder="your@email.com" required>
+                  <label for="email" class="form-label fw-bold">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="example@email.com"
+                  >
+                  <div class="invalid-feedback" id="emailFeedback"></div>
                 </div>
-                <div class="mb-3">
-                  <label for="loginPassword" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="loginPassword" name="password" 
-                         placeholder="••••••••" required>
+
+                <div class="mb-4">
+                  <label for="password" class="form-label fw-bold">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Enter your password"
+                  >
+                  <div class="invalid-feedback" id="passwordFeedback"></div>
+                  
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-danger btn-lg fw-bold">
+                    Login
+                  </button>
+                </div>
+
               </form>
+
             </div>
           </div>
+
         </div>
       </div>
     </div>
   </main>
 
-  <footer class="footer-custom mt-auto">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2025 VexaBank. Academic Project.</p>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 ">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 VexaBank. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    /*
+      This script validates the login form using Bootstrap validation classes.
+      The email field must match a valid email format.
+      The password field must include:
+      - At least 8 characters
+      - One uppercase letter
+      - One number
+      - One special symbol
+    */
+
+    const form = document.getElementById("loginForm");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+
+    const emailFeedback = document.getElementById("emailFeedback");
+    const passwordFeedback = document.getElementById("passwordFeedback");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      let isValid = true;
+
+      // Clear previous validation state
+      email.classList.remove("is-valid", "is-invalid");
+      password.classList.remove("is-valid", "is-invalid");
+
+      // Email validation pattern
+      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+
+      if (!emailPattern.test(email.value.trim())) {
+        email.classList.add("is-invalid");
+        emailFeedback.textContent = "Please enter a valid email address.";
+        isValid = false;
+      } else {
+        email.classList.add("is-valid");
+      }
+
+      // Password validation pattern
+      const passwordPattern =
+        /^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,}$/;
+
+      if (!passwordPattern.test(password.value.trim())) {
+        password.classList.add("is-invalid");
+        passwordFeedback.textContent =
+          "Password must contain at least 8 characters, one uppercase letter, one number, and one special symbol.";
+        isValid = false;
+      } else {
+        password.classList.add("is-valid");
+      }
+
+      // If the form is valid, simulate successful login
+      if (isValid) {
+        alert("Login successful!");
+      }
+    });
+  </script>
 
 </body>
 </html>

@@ -3,44 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transaction History - VexaBank</title>
+  <title>Transactions - VexaBank</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../css/styles.css" rel="stylesheet">
 </head>
-<body class="d-flex flex-column min-vh-100">
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-      <div class="container">
-<div>
-          <img src="/images/vexa logo.png" alt="VexaBank Logo" class="img-fluid" style="max-height: 40px;">
-          <a class="navbar-brand fw-bold" href="../index.html">VexaBank</a>
-        </div>        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarMain">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="../login.html">Login</a></li>
-            <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
-          </ul>
+<body class="d-flex flex-column min-vh-100 bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html">VexaBank</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarMain"
+        aria-controls="navbarMain"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="dashboard.html">Dashboard</a>
+          </li>
+                            <li class="nav-item"><a class="nav-link" href="./questionnaire.html">Questionnaire</a></li>
+          <li class="nav-item"><a class="nav-link " href="./fun.html">Fun Page</a></li>
+          <li class="nav-item"><a class="nav-link" href="./calculate.html">Calculate</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h1 class="fw-bold">Transaction History</h1>
+        <p class="text-muted">Add, search, and display transactions dynamically.</p>
+      </div>
+
+      <div class="card shadow-sm border-0 rounded-4 mb-4">
+        <div class="card-header bg-danger text-white fw-bold">Add New Transaction</div>
+        <div class="card-body">
+          <div class="row g-3">
+            <div class="col-md-2">
+              <input type="date" id="date" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <input type="text" id="transactionId" class="form-control" placeholder="TXN-123456">
+            </div>
+            <div class="col-md-2">
+              <select id="type" class="form-select">
+                <option value="">Type</option>
+                <option>Deposit</option>
+                <option>Transfer</option>
+                <option>Withdrawal</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <input type="number" id="amount" class="form-control" placeholder="Amount" step="0.01">
+            </div>
+            <div class="col-md-2">
+              <select id="status" class="form-select">
+                <option>Completed</option>
+                <option>Pending</option>
+              </select>
+            </div>
+            <div class="col-md-2 d-grid">
+              <button class="btn btn-dark" onclick="addTransaction()">Add Transaction</button>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-  </header>
 
-  <main class="flex-grow-1 section-padding">
-    <div class="container">
-      <h1 class="section-title">Transaction History</h1>
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search by ID or type">
+            <button class="btn btn-danger" onclick="searchTransactions()">Search</button>
+            <button class="btn btn-outline-secondary" onclick="displayTransactions(transactions)">Show All</button>
+          </div>
+        </div>
+      </div>
 
- 
-      <div class="card card-custom">
+      <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-header bg-dark text-white fw-bold">Recent Transactions</div>
         <div class="card-body p-0">
           <div class="table-responsive">
-            <table class="table table-custom table-striped table-hover mb-0">
-              <thead>
+            <table class="table table-hover align-middle mb-0">
+              <thead class="table-light">
                 <tr>
                   <th>Date</th>
                   <th>Transaction ID</th>
@@ -49,66 +113,114 @@
                   <th>Status</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>2025-03-07</td>
-                  <td>TXN-784521</td>
-                  <td><span class="badge badge-deposit">Deposit</span></td>
-                  <td class="text-success">+$3,200.00</td>
-                  <td><span class="badge bg-success">Completed</span></td>
-                </tr>
-                <tr>
-                  <td>2025-03-06</td>
-                  <td>TXN-784498</td>
-                  <td><span class="badge badge-transfer">Transfer</span></td>
-                  <td class="text-danger">-$150.00</td>
-                  <td><span class="badge bg-success">Completed</span></td>
-                </tr>
-                <tr>
-                  <td>2025-03-05</td>
-                  <td>TXN-784455</td>
-                  <td><span class="badge badge-withdrawal">Withdrawal</span></td>
-                  <td class="text-danger">-$45.99</td>
-                  <td><span class="badge bg-success">Completed</span></td>
-                </tr>
-                <tr>
-                  <td>2025-03-04</td>
-                  <td>TXN-784412</td>
-                  <td><span class="badge badge-deposit">Deposit</span></td>
-                  <td class="text-success">+$500.00</td>
-                  <td><span class="badge bg-success">Completed</span></td>
-                </tr>
-                <tr>
-                  <td>2025-03-03</td>
-                  <td>TXN-784389</td>
-                  <td><span class="badge badge-transfer">Transfer</span></td>
-                  <td class="text-danger">-$75.50</td>
-                  <td><span class="badge bg-success">Completed</span></td>
-                </tr>
-                <tr>
-                  <td>2025-03-02</td>
-                  <td>TXN-784356</td>
-                  <td><span class="badge badge-withdrawal">Withdrawal</span></td>
-                  <td class="text-danger">-$120.00</td>
-                  <td><span class="badge bg-warning text-dark">Pending</span></td>
-                </tr>
-              </tbody>
+              <tbody id="transactionTableBody"></tbody>
             </table>
           </div>
         </div>
       </div>
-
-      <div class="mt-3">
-        <a href="dashboard.html" class="btn btn-outline-custom">Back to Dashboard</a>
-      </div>
     </div>
   </main>
 
-  <footer class="footer-custom mt-auto">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2025 VexaBank. Academic Project.</p>
+  <footer class="bg-dark text-white text-center py-3 mt-auto border-top border-danger">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 VexaBank.</p>
     </div>
   </footer>
 
+  <script>
+    /*
+      Constructor function for creating transaction objects.
+      Each transaction contains date, id, type, amount, and status.
+    */
+    function Transaction(date, id, type, amount, status) {
+      this.date = date;
+      this.id = id;
+      this.type = type;
+      this.amount = amount;
+      this.status = status;
+    }
+
+    /*
+      Array used to store transaction objects.
+      This uses actual banking-style sample data.
+    */
+    const transactions = [
+      new Transaction("2025-03-07", "TXN-784521", "Deposit", 3200.00, "Completed"),
+      new Transaction("2025-03-06", "TXN-784498", "Transfer", -150.00, "Completed"),
+      new Transaction("2025-03-05", "TXN-784455", "Withdrawal", -45.99, "Completed"),
+      new Transaction("2025-03-02", "TXN-784356", "Withdrawal", -120.00, "Pending")
+    ];
+
+    /*
+      This function displays transaction data dynamically inside the table body.
+      It first clears the old content, then adds rows based on the array passed to it.
+    */
+    function displayTransactions(data) {
+      const tableBody = document.getElementById("transactionTableBody");
+      tableBody.innerHTML = "";
+
+      data.forEach(function (transaction) {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td>${transaction.date}</td>
+          <td>${transaction.id}</td>
+          <td>${transaction.type}</td>
+          <td class="${transaction.amount >= 0 ? 'text-success' : 'text-danger'} fw-bold">
+            ${transaction.amount >= 0 ? '+' : ''}$${transaction.amount.toFixed(2)}
+          </td>
+          <td>
+            <span class="badge ${transaction.status === 'Completed' ? 'bg-success' : 'bg-warning text-dark'}">
+              ${transaction.status}
+            </span>
+          </td>
+        `;
+
+        tableBody.appendChild(row);
+      });
+    }
+
+    /*
+      This function reads the form values, creates a new transaction object,
+      adds it to the transactions array, then refreshes the table.
+    */
+    function addTransaction() {
+      const date = document.getElementById("date").value;
+      const transactionId = document.getElementById("transactionId").value.trim();
+      const type = document.getElementById("type").value;
+      const amount = parseFloat(document.getElementById("amount").value);
+      const status = document.getElementById("status").value;
+
+      if (date === "" || transactionId === "" || type === "" || isNaN(amount)) {
+        alert("Please fill in all transaction fields.");
+        return;
+      }
+
+      const newTransaction = new Transaction(date, transactionId, type, amount, status);
+      transactions.push(newTransaction);
+      displayTransactions(transactions);
+    }
+
+    /*
+      This function searches by transaction ID or type.
+      It filters the main array and displays only matching results.
+    */
+    function searchTransactions() {
+      const value = document.getElementById("searchInput").value.toLowerCase().trim();
+
+      const filtered = transactions.filter(function (transaction) {
+        return (
+          transaction.id.toLowerCase().includes(value) ||
+          transaction.type.toLowerCase().includes(value)
+        );
+      });
+
+      displayTransactions(filtered);
+    }
+
+    displayTransactions(transactions);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
