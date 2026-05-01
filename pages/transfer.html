@@ -73,8 +73,7 @@
 
             <div class="card-body p-4">
 
-              <form id="transferForm" novalidate>
-
+            <form id="transferForm" action="transfer.php" method="post" onsubmit="return validateTransferForm();" novalidate>
                 <div class="mb-3">
                   <label for="recipient" class="form-label fw-semibold">
                     Recipient Name
@@ -135,83 +134,33 @@
     </div>
   </footer>
 
-  <script>
-    /*
-      This function validates the transfer form.
-      It checks:
-      1. Recipient name contains only letters and is at least 3 characters.
-      2. Account number contains only digits and has at least 6 digits.
-      3. Transfer amount is greater than 0 and does not exceed available balance.
-    */
+<script>
+function validateTransferForm() {
+  const recipient = document.getElementById("recipient");
+  const account = document.getElementById("account");
+  const amount = document.getElementById("amount");
+  const availableBalance = 24580;
 
-    const form = document.getElementById("transferForm");
-    const recipient = document.getElementById("recipient");
-    const account = document.getElementById("account");
-    const amount = document.getElementById("amount");
+  let valid = true;
 
-    // Current account balance
-    const availableBalance = 24580;
+  const recipientPattern = /^[A-Za-z\s]{3,}$/;
+  const accountPattern = /^\d{6,12}$/;
+  const transferAmount = parseFloat(amount.value);
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+  recipient.classList.toggle("is-invalid", !recipientPattern.test(recipient.value.trim()));
+  account.classList.toggle("is-invalid", !accountPattern.test(account.value.trim()));
+  amount.classList.toggle("is-invalid", isNaN(transferAmount) || transferAmount <= 0 || transferAmount > availableBalance);
 
-      let isValid = true;
+  valid =
+    recipientPattern.test(recipient.value.trim()) &&
+    accountPattern.test(account.value.trim()) &&
+    !isNaN(transferAmount) &&
+    transferAmount > 0 &&
+    transferAmount <= availableBalance;
 
-      // Remove old validation classes
-      recipient.classList.remove("is-valid", "is-invalid");
-      account.classList.remove("is-valid", "is-invalid");
-      amount.classList.remove("is-valid", "is-invalid");
-
-      /*
-        Recipient validation:
-        Only letters and spaces are allowed.
-      */
-      const recipientPattern = /^[A-Za-z\s]{3,}$/;
-
-      if (!recipientPattern.test(recipient.value.trim())) {
-        recipient.classList.add("is-invalid");
-        isValid = false;
-      } else {
-        recipient.classList.add("is-valid");
-      }
-
-      /*
-        Account number validation:
-        Must contain only numbers and be at least 6 digits.
-      */
-      const accountPattern = /^\d{6,}$/;
-
-      if (!accountPattern.test(account.value.trim())) {
-        account.classList.add("is-invalid");
-        isValid = false;
-      } else {
-        account.classList.add("is-valid");
-      }
-
-      /*
-        Amount validation:
-        Amount must be positive and less than or equal to the available balance.
-      */
-      const transferAmount = parseFloat(amount.value);
-
-      if (
-        isNaN(transferAmount) ||
-        transferAmount <= 0 ||
-        transferAmount > availableBalance
-      ) {
-        amount.classList.add("is-invalid");
-        isValid = false;
-      } else {
-        amount.classList.add("is-valid");
-      }
-
-      // If all inputs are valid, show success message
-      if (isValid) {
-        alert("Transfer completed successfully!");
-      }
-    });
-  </script>
-
+  return valid;
+}
+</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

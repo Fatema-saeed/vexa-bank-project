@@ -85,8 +85,7 @@
               </div>
 
               <div class="card-body p-4">
-                <form id="contactForm" novalidate>
-
+                <form id="contactForm" action="contact.php" method="post" onsubmit="return validateContactForm();" novalidate>   
                   <div class="mb-3">
                     <label for="name" class="form-label fw-semibold">Name</label>
                     <input id="name" type="text" class="form-control">
@@ -132,60 +131,25 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function validateContactForm() {
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const messageInput = document.getElementById("message");
 
-  <script>
-    /*
-      This function validates the contact form using Bootstrap validation classes.
-      It checks:
-      1. Name must be at least 3 characters long.
-      2. Email must follow a valid email format.
-      3. Message must contain at least 10 characters.
-    */
+  const namePattern = /^[A-Za-z\s]{3,}$/;
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const contactForm = document.getElementById("contactForm");
-    const nameInput = document.getElementById("name");
-    const emailInput = document.getElementById("email");
-    const messageInput = document.getElementById("message");
+  const nameValid = namePattern.test(nameInput.value.trim());
+  const emailValid = emailPattern.test(emailInput.value.trim());
+  const messageValid = messageInput.value.trim().length >= 10;
 
-    contactForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+  nameInput.classList.toggle("is-invalid", !nameValid);
+  emailInput.classList.toggle("is-invalid", !emailValid);
+  messageInput.classList.toggle("is-invalid", !messageValid);
 
-      let valid = true;
-
-      nameInput.classList.remove("is-valid", "is-invalid");
-      emailInput.classList.remove("is-valid", "is-invalid");
-      messageInput.classList.remove("is-valid", "is-invalid");
-
-      if (nameInput.value.trim().length < 3) {
-        nameInput.classList.add("is-invalid");
-        valid = false;
-      } else {
-        nameInput.classList.add("is-valid");
-      }
-
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailPattern.test(emailInput.value.trim())) {
-        emailInput.classList.add("is-invalid");
-        valid = false;
-      } else {
-        emailInput.classList.add("is-valid");
-      }
-
-      if (messageInput.value.trim().length < 10) {
-        messageInput.classList.add("is-invalid");
-        valid = false;
-      } else {
-        messageInput.classList.add("is-valid");
-      }
-
-      if (valid) {
-        alert("Message sent successfully!");
-      } else {
-        alert("Please enter valid information in all fields.");
-      }
-    });
-  </script>
+  return nameValid && emailValid && messageValid;
+}
+</script>
 </body>
 </html>

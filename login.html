@@ -54,16 +54,15 @@
 
             <div class="card-body p-4">
 
-              <form id="loginForm" novalidate>
-
-                <div class="mb-3">
+              <form id="loginForm" action="login.php" method="post" onsubmit="return validateLoginForm();" novalidate>                <div class="mb-3">
                   <label for="email" class="form-label fw-bold">Email Address</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    placeholder="example@email.com"
-                  >
+                 <input
+                      type="email"
+  class="form-control"
+  id="email"
+  name="email"
+  placeholder="example@email.com"
+>
                   <div class="invalid-feedback" id="emailFeedback"></div>
                 </div>
 
@@ -73,6 +72,7 @@
                     type="password"
                     class="form-control"
                     id="password"
+                    name="password"
                     placeholder="Enter your password"
                   >
                   <div class="invalid-feedback" id="passwordFeedback"></div>
@@ -101,64 +101,43 @@
       <p class="mb-0">&copy; 2026 VexaBank. All rights reserved.</p>
     </div>
   </footer>
+<script>
+function validateLoginForm() {
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
 
-  <script>
-    /*
-      This script validates the login form using Bootstrap validation classes.
-      The email field must match a valid email format.
-      The password field must include:
-      - At least 8 characters
-      - One uppercase letter
-      - One number
-      - One special symbol
-    */
+  const emailFeedback = document.getElementById("emailFeedback");
+  const passwordFeedback = document.getElementById("passwordFeedback");
 
-    const form = document.getElementById("loginForm");
-    const email = document.getElementById("email");
-    const password = document.getElementById("password");
+  let isValid = true;
 
-    const emailFeedback = document.getElementById("emailFeedback");
-    const passwordFeedback = document.getElementById("passwordFeedback");
+  email.classList.remove("is-valid", "is-invalid");
+  password.classList.remove("is-valid", "is-invalid");
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      let isValid = true;
+  if (!emailPattern.test(email.value.trim())) {
+    email.classList.add("is-invalid");
+    emailFeedback.textContent = "Please enter a valid email address.";
+    isValid = false;
+  } else {
+    email.classList.add("is-valid");
+  }
 
-      // Clear previous validation state
-      email.classList.remove("is-valid", "is-invalid");
-      password.classList.remove("is-valid", "is-invalid");
+  const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
 
-      // Email validation pattern
-      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+  if (!passwordPattern.test(password.value.trim())) {
+    password.classList.add("is-invalid");
+    passwordFeedback.textContent =
+      "Password must contain at least 8 characters, one uppercase letter, one number, and one special symbol.";
+    isValid = false;
+  } else {
+    password.classList.add("is-valid");
+  }
 
-      if (!emailPattern.test(email.value.trim())) {
-        email.classList.add("is-invalid");
-        emailFeedback.textContent = "Please enter a valid email address.";
-        isValid = false;
-      } else {
-        email.classList.add("is-valid");
-      }
-
-      // Password validation pattern
-      const passwordPattern =
-        /^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,}$/;
-
-      if (!passwordPattern.test(password.value.trim())) {
-        password.classList.add("is-invalid");
-        passwordFeedback.textContent =
-          "Password must contain at least 8 characters, one uppercase letter, one number, and one special symbol.";
-        isValid = false;
-      } else {
-        password.classList.add("is-valid");
-      }
-
-      // If the form is valid, simulate successful login
-      if (isValid) {
-        alert("Login successful!");
-      }
-    });
-  </script>
+  return isValid;
+}
+</script>
 
 </body>
 </html>
