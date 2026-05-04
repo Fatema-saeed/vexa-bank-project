@@ -1,4 +1,6 @@
 <?php
+include "db.php";
+
 $fullName = $_POST["fullName"] ?? "";
 $email = $_POST["studentEmail"] ?? "";
 $age = $_POST["age"] ?? "";
@@ -14,7 +16,15 @@ if (
   empty($rating) || empty($services) || empty($branch) || empty($feedback)
 ) {
   $error = "Please fill in all fields correctly.";
-}
+} else {
+
+  $servicesStr = implode(", ", $services);
+
+  $sql = "INSERT INTO questionnaire 
+    (full_name, email, age, rating, services, branch, feedback)
+    VALUES ('$fullName', '$email', '$age', '$rating', '$servicesStr', '$branch', '$feedback')";
+
+  $conn->query($sql); }
 ?>
 
 <!DOCTYPE html>
