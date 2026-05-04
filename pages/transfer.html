@@ -78,7 +78,7 @@
                   <label for="recipient" class="form-label fw-semibold">
                     Recipient Name
                   </label>
-                  <input id="recipient" type="text" class="form-control">
+                  <input id="recipient" name="recipient" type="text" class="form-control">
                   <div class="invalid-feedback">
                     Name must contain at least 3 letters and no numbers.
                   </div>
@@ -88,7 +88,7 @@
                   <label for="account" class="form-label fw-semibold">
                     Account Number
                   </label>
-                  <input id="account" type="text" class="form-control">
+                  <input id="account" name="account" type="text" class="form-control">
                   <div class="invalid-feedback">
                     Account number must contain only digits and be at least 6 digits long.
                   </div>
@@ -98,7 +98,7 @@
                   <label for="amount" class="form-label fw-semibold">
                     Amount
                   </label>
-                  <input id="amount" type="number" class="form-control" step="0.01">
+                  <input id="amount" name="amount" type="number" class="form-control" step="0.01">
                   <div class="invalid-feedback">
                     Enter a valid amount that does not exceed your balance.
                   </div>
@@ -108,7 +108,7 @@
                   <label for="note" class="form-label fw-semibold">
                     Transfer Note
                   </label>
-                  <textarea id="note" class="form-control" rows="3"></textarea>
+                  <textarea id="note" name="note" class="form-control" rows="3"></textarea>
                 </div>
 
                 <div class="d-grid">
