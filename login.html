@@ -54,7 +54,7 @@
 
             <div class="card-body p-4">
 
-              <form id="loginForm" action="login.php" method="post" onsubmit="return validateLoginForm();" novalidate>                <div class="mb-3">
+              <form id="loginForm" action="./pages/login.php" method="post" onsubmit="return validateLoginForm();" novalidate>                <div class="mb-3">
                   <label for="email" class="form-label fw-bold">Email Address</label>
                  <input
                       type="email"
@@ -126,14 +126,14 @@ function validateLoginForm() {
 
   const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
 
-  if (!passwordPattern.test(password.value.trim())) {
-    password.classList.add("is-invalid");
-    passwordFeedback.textContent =
-      "Password must contain at least 8 characters, one uppercase letter, one number, and one special symbol.";
-    isValid = false;
-  } else {
-    password.classList.add("is-valid");
-  }
+if (password.value.trim().length < 6) {
+  password.classList.add("is-invalid");
+  passwordFeedback.textContent =
+    "Password must be at least 6 characters long.";
+  isValid = false;
+} else {
+  password.classList.add("is-valid");
+}
 
   return isValid;
 }
